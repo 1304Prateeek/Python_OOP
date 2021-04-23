@@ -1,0 +1,43 @@
+#numbers used are for reference only
+#The topics like Classes, Objects, instances, constructors, variables and further are explained with the help of an illustrative small code.
+class Electric_Bikes :
+    
+    enhancer = 1.5                   # This is known as a class variable. 
+    no_of_bikes = 0
+    def __init__(self, bname, brange, bspeed):                                   # the constructor
+        self.bname = bname           
+        self.brange = brange
+        self.bspeed = bspeed
+        self.enhancer = 1.4                       # These are known as instance variables.
+        Electric_Bikes.no_of_bikes+=1
+    def booster(self):        # boosters w.r.t. class variables and instances variables resp.
+        self.brange = int (self.brange * Electric_Bikes.enhancer)
+        self.bspeed = int(self.bspeed * self.enhancer)
+        
+print(Electric_Bikes.no_of_bikes)        
+Emflux_One = Electric_Bikes('Emflux One' , 200 , 200)
+Orxa_Mantis = Electric_Bikes('Orxa Mantis' , 230 , 250)
+Ultraviolette_F77 = Electric_Bikes('Ultraviolette F77' , 170 ,190) 
+print(Electric_Bikes.no_of_bikes)                                   # no of bikes till now
+
+
+print("Non-swappable Batteries")
+
+print(Emflux_One.__dict__)
+print(Emflux_One.brange)
+Emflux_One.booster()                # Whenever booster function is called the range will use the class variable and not the instance variable 
+print(Emflux_One.brange)
+
+#instance variable is preffered over class variable
+
+print("Swappable Batteries")
+
+print(Orxa_Mantis.__dict__)    
+Orxa_Mantis.battery = 3                        # New instance added
+print(Orxa_Mantis.__dict__)  
+
+print(Orxa_Mantis.bspeed)
+Orxa_Mantis.booster()
+print(Orxa_Mantis.bspeed)
+
+# print(Electric_Bikes.__dict__)
